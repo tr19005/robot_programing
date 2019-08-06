@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/png, image/jpeg">
+<!--  <button type="submit">submit</button> -->
+  <button name="value" value= "hoge">白黒</button>
+  <button name="value" value= "submit">線画</button>
+  <button name="value" value= "foo">アニメ調</button>
+</form>
+
+{% if images %}
+  {% for path in images %}
+    <div>
+      <img src="images/{{ path }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
+      {{ path }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
+
